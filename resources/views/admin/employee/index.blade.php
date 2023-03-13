@@ -11,9 +11,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                   @if(Session::has('message'))
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                       {{Session::get('message')}}
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
                     </div>
                  
                 @endif              
@@ -25,6 +25,7 @@
                             <th>Mobile</th>
                             <th>Email</th>
                             <th>Company</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -34,8 +35,9 @@
                                 <td>{{$employee->mobile}}</td>
                                 <td>{{$employee->email}}</td>
                                 <td>{{$employee->company->name}}</td>
+                                <td>@if($employee->status=='1') Active @elseif($employee->status=='2') Resigned @else Suspended @endif</td>
                                 <td> 
-                                    <a href="{{route('employee.edit', [$employee->id])}}" class="text-blue-500"><button class="btn-primary">Edit</button></a>
+                                    <a href="{{route('employee.edit', [$employee->id])}}" class="text-blue-500"><button class="btn btn-primary">Edit</button></a>
                                     <form method="post" action="{{route('employee.destroy', [$employee->id])}}" id="deleteForm{{$employee->id}}">
                                             @csrf
                                             @method('DELETE')

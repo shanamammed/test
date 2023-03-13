@@ -37,7 +37,7 @@
 
                         <div class="mt-4">
                             <x-input-label for="logo" :value="__('Company Logo')" />
-                            <input id="logo" class="block mt-1 w-full" type="file" name="logo" :value="old('logo')" required />
+                            <input id="logo" class="block mt-1 w-full" type="file" name="logo" :value="old('logo')" accept="image/*" required />
                             @error('logo')
                                 <div class="text-red-600">{{$message}}</div>
                              @enderror
