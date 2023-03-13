@@ -13,7 +13,7 @@
                   @if(Session::has('message'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                       {{Session::get('message')}}
-                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close">X</button>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
                     </div>
                  
                 @endif              
